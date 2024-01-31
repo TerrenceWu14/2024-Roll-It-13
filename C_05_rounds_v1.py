@@ -37,7 +37,8 @@ double_points = user_first[1]
 if double_points == "no":
     double_message = ""
 elif double_points == "yes":
-    double_message = "You are also eligible to win double the points if you win this round!"
+    double_message = ("You are also eligible to win double the points"
+                      " if you win this round since you got a pair!")
 
 # Displays the first moves results
 print(f"You managed to get {user_points}. {double_message}")
@@ -46,11 +47,6 @@ print(f"You managed to get {user_points}. {double_message}")
 computer_first = double_roll()
 computer_points = computer_first[0]
 double_points = computer_first[1]
-
-if double_points == "no":
-    double_message = ""
-elif double_points == "yes":
-    double_message = "The Computer is eligible to win double the points if you win this round!"
 
 # Displays the amount of points the computer got
 print(f"The computer got {computer_points}. {double_message}")
@@ -68,9 +64,21 @@ while user_points <= 13 and computer_points <= 13:
     else:
         print("You passed your turn")
         break
-    # Rolls a single die
+
+    print("\nPress <enter> to continue: ")
+    input()
+    print()
+
+    # Rolls the die for the computer and updates its points
     computer_roll_again = roll_die()
-    # Adds what you got from the roll onto your current points
     computer_points += computer_roll_again
-    # Displays what the computer rolled and the new updated points
     print(f"The Computer rolled a {computer_roll_again}. Total points: {computer_points}")
+
+    print()
+    if user_points > computer_points:
+        result = "You are ahead"
+    else:
+        result = "The Computer is ahead"
+
+    print(f"***Round Update***: {result} ")
+    print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
