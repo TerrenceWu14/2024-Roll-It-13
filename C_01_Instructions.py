@@ -14,6 +14,7 @@ def yes_no(question):
             print()
 
 
+# Displays instructions
 def instructions():
     print('''
     
@@ -38,6 +39,7 @@ Your goal is to get the target score (or higher) first before the Computer does
     ''')
 
 
+# Displays the title
 print()
 print("🎲🎲🎲 Roll It 13 🎲🎲🎲")
 print()
@@ -48,6 +50,6 @@ while True:
 
     # Checks whether the user entered yes or no
     if want_instruction == "yes" or want_instruction == "y":
-        print("instructions go here")
+        instructions()
     print("program continues")
     print()
