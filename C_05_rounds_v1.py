@@ -64,6 +64,11 @@ while user_points < 13 and computer_points < 13:
     else:
         print("You passed your turn")
         break
+    # Checks to see whether the user or computer have goner over 13 or not
+    if user_points < 13:
+        # Makes it so that the loser gets this rounds' points reset to 0
+        user_points = 0
+        break
     print()
 
     # Rolls the die for the computer and updates its points
@@ -71,13 +76,10 @@ while user_points < 13 and computer_points < 13:
     computer_points += computer_roll_again
     print(f"The Computer rolled a {computer_roll_again}. Total points: {computer_points}")
 
-    # Checks to see whether the user or computer have goner over 13 or not
-    if user_points < 13:
-        user_points = 0
-        break
-    elif computer_points < 13:
+    if computer_points < 13:
         computer_points = 0
         break
+
     print()
     # If user points > computer points it tells you that you're ahead
     if user_points > computer_points:
