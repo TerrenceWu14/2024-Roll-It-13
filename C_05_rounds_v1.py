@@ -52,7 +52,7 @@ double_points = computer_first[1]
 print(f"The computer got {computer_points}. {double_message}")
 
 # While both the user and the computer have <= points it keeps looping
-while user_points <= 13 and computer_points <= 13:
+while user_points < 13 and computer_points < 13:
     roll_again = input("Press <enter> to roll again or any letter to pass your turn: ")
     # Rolls a single die
     if roll_again == "":
@@ -71,7 +71,13 @@ while user_points <= 13 and computer_points <= 13:
     computer_points += computer_roll_again
     print(f"The Computer rolled a {computer_roll_again}. Total points: {computer_points}")
 
+    # Checks to see whether the user or computer have goner over 13 or not
+    if user_points < 13:
+        user_points = 0
+    elif computer_points < 13:
+        computer_points = 0
     print()
+
     # If user points > computer points it tells you that you're ahead
     if user_points > computer_points:
         result = "You are ahead"
@@ -81,7 +87,6 @@ while user_points <= 13 and computer_points <= 13:
     print(f"***Round Update***: {result} ")
     print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
 
-print()
 # Show round result
 if user_points < computer_points:
     print("You have lost this round thus you gain no points "
@@ -90,3 +95,4 @@ if user_points < computer_points:
 else:
     print(f"Good job! You have won the round and {user_points} have "
           f"been added to your score")
+
