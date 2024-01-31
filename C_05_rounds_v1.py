@@ -47,8 +47,13 @@ computer_first = double_roll()
 computer_points = computer_first[0]
 double_points = computer_first[1]
 
+if double_points == "no":
+    double_message = ""
+elif double_points == "yes":
+    double_message = "The Computer is eligible to win double the points if you win this round!"
+
 # Displays the amount of points the computer got
-print(f"The computer got {computer_points}")
+print(f"The computer got {computer_points}. {double_message}")
 
 # While both the user and the computer have <= points it keeps looping
 while user_points <= 13 and computer_points <= 13:
