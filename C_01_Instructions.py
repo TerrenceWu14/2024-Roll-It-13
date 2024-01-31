@@ -42,9 +42,10 @@ print("🎲🎲🎲 Roll It 13 🎲🎲🎲")
 print()
 
 # Loops the code
-want_instruction = yes_no("Do you want to read the instructions? (If so type yes or if not type no)")
+while True:
+    want_instruction = yes_no("Do you want to read the instructions? (If so type yes or if not type no)")
 
-# Checks whether the user entered yes or no
-if want_instruction == "yes" or want_instruction == "y":
-    instructions()
-print("program continues")
+    # Checks whether the user entered yes or no
+    if want_instruction == "yes" or want_instruction == "y":
+        instructions()
+    print("program continues")
