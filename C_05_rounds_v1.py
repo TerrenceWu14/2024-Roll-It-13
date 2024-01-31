@@ -74,10 +74,11 @@ while user_points < 13 and computer_points < 13:
     # Checks to see whether the user or computer have goner over 13 or not
     if user_points < 13:
         user_points = 0
+        break
     elif computer_points < 13:
         computer_points = 0
+        break
     print()
-
     # If user points > computer points it tells you that you're ahead
     if user_points > computer_points:
         result = "You are ahead"
