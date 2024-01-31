@@ -80,3 +80,13 @@ while user_points <= 13 and computer_points <= 13:
     # Overall stats of the round so far
     print(f"***Round Update***: {result} ")
     print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
+
+print()
+# Show round result
+if user_points < computer_points:
+    print("You have lost this round thus you gain no points "
+          "have been added to your total score. The computer's score has "
+          f"increased by {computer_points} points. ")
+else:
+    print(f"Good job! You have won the round and {user_points} have "
+          f"been added to your score")
