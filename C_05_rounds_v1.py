@@ -64,9 +64,6 @@ while user_points <= 13 and computer_points <= 13:
     else:
         print("You passed your turn")
         break
-
-    print("\nPress <enter> to continue: ")
-    input()
     print()
 
     # Rolls the die for the computer and updates its points
@@ -75,10 +72,11 @@ while user_points <= 13 and computer_points <= 13:
     print(f"The Computer rolled a {computer_roll_again}. Total points: {computer_points}")
 
     print()
+    # If user points > computer points it tells you that you're ahead
     if user_points > computer_points:
         result = "You are ahead"
     else:
         result = "The Computer is ahead"
-
+    # Overall stats of the round so far
     print(f"***Round Update***: {result} ")
     print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
