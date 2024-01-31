@@ -31,12 +31,18 @@ def double_roll():
 
 
 # Main routine goes here
+
+# Asks how many dice are going to be rolled
 how_many = int(input("How many dice? (1 or 2): "))
 
-for item in range(0, 5):
+for item in range(0, 1):
     if how_many == 2:
         start_points = double_roll()
         points = start_points[0]
         double_points = start_points[1]
 
-        print(f"You have {points} points and a double score of {double_points}")
+        # Tells us the total amount of points and whether we can get a double score or not
+        print(f"You have {points} points and you have a double score opportunity of {double_points}")
+    else:
+        points = roll_die()
+        print(f"You have {points} points")
