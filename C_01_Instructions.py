@@ -11,6 +11,7 @@ def yes_no(question):
             return "no"
         else:
             print("you didn't choose a valid option (yes/no)")
+            print()
 
 
 def instructions():
@@ -47,5 +48,6 @@ while True:
 
     # Checks whether the user entered yes or no
     if want_instruction == "yes" or want_instruction == "y":
-        instructions()
+        print("instructions go here")
     print("program continues")
+    print()
