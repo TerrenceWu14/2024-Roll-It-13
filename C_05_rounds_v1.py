@@ -42,12 +42,12 @@ input()
 # Gets the initial points for the user
 user_first = double_roll("You")
 user_points = user_first[0]
-double_points = user_first[1]
+user_double_points = user_first[1]
 
 # Gets initial dice rolls for computer
 computer_first = double_roll("Computer")
 computer_points = computer_first[0]
-double_points = computer_first[1]
+computer_double_points = computer_first[1]
 
 # While both the user and the computer have <= points it keeps looping
 while user_points < 13 and computer_points < 13:
@@ -93,10 +93,16 @@ while user_points < 13 and computer_points < 13:
 
 # Show round result
 if user_points < computer_points:
+    if computer_double_points == "yes":
+        computer_points *= 2
     print("You have lost this round meaning no points "
           "have been added to your total score. The computer's score has "
           f"increased by {computer_points} points. ")
+
 else:
+    # Check if either user or computer is eligible for double points
+    if user_double_points == "yes":
+        user_points *= 2
     print(f"🥳🥳🥳 You have won the round and {user_points} points have "
           f"been added to your score 🥳🥳🥳")
 
