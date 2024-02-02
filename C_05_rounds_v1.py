@@ -40,7 +40,7 @@ def double_roll(who):
 print("Press <enter> to begin this round (roll the 🎲): ")
 input()
 # Gets the initial points for the user
-user_first = double_roll("You")
+user_first = double_roll("User")
 user_points = user_first[0]
 user_double_points = user_first[1]
 
