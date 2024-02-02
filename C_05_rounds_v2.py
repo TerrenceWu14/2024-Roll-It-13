@@ -71,7 +71,7 @@ while user_points < 13 and computer_points < 13:
         user_pass = "yes"
         print("You passed your turn")
 
-    # Makes it so that if the user had passed before they can't roll agian
+    # Makes it so that if the user had passed before they can't roll again
     if user_pass == "yes":
         pass
 
@@ -82,7 +82,7 @@ while user_points < 13 and computer_points < 13:
         break
     print()
 
-    if 10 <= computer_points <= 13 and computer_points - user_points <= 3:
+    if 10 <= computer_points <= 13:
         computer_pass = "yes"
 
     elif computer_pass == "yes":
