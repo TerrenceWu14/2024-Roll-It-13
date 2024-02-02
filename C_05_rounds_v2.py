@@ -109,6 +109,7 @@ while user_points < 13 and computer_points < 13:
     # Checks if the computer and user have both passed and whether it's a tie
     if computer_points == user_points and computer_pass and user_pass == "yes":
         result = "😬 Its a tie 😬"
+        break
 
 # Show round result
 if user_points < computer_points:
@@ -118,13 +119,13 @@ if user_points < computer_points:
           "have been added to your total score. The computer's score has "
           f"increased by {computer_points} points. ")
 
-if result == "😬 Its a tie 😬":
-    print(f"You and the computer have tied so you gain {user_points} points and the computer also gains "
-          f"{computer_points}.")
-    pass
 elif user_points > computer_points:
     # Check if either user or computer is eligible for double points
     if user_double_points == "yes":
         user_points *= 2
     print(f"🥳🥳🥳 You have won the round and {user_points} points have "
           f"been added to your score 🥳🥳🥳")
+
+else:
+    print(f"You and the computer have tied so you gain {user_points} points and the computer also gains "
+          f"{computer_points}.")
