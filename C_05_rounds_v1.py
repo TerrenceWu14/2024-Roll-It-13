@@ -3,12 +3,12 @@ import random
 
 # Performs a single dice roll
 def roll_die():
-    result = random.randint(1, 6)
-    return result
+    roll_result = random.randint(1, 6)
+    return roll_result
 
 
 # Performs a double roll and tells us if they're a pair or not
-def double_roll():
+def double_roll(who):
     double_score = "no"
 
     # Rolls two dice (First rolls)
@@ -20,17 +20,20 @@ def double_roll():
         double_score = "yes"
 
     # Find the total points after the first dice roll
-    user_points = roll_1 + roll_2
+    first_points = roll_1 + roll_2
+
+    # Prints out who got how many points and what they got from their rolls
+    print(f"{who} managed to get {roll_1} and {roll_2}. Total Points: {first_points}")
 
     # Shows the result of the dice rolls
-    return user_points, double_score
+    return first_points, double_score
 
 
 # Main routine goes here
-print("Press <enter> to begin this round: ")
+print("Press <enter> to begin this round (roll the dies): ")
 input()
 # Gets the initial points for the user
-user_first = double_roll()
+user_first = double_roll("You")
 user_points = user_first[0]
 double_points = user_first[1]
 # Tells the user if they are eligible for double points
@@ -40,16 +43,10 @@ elif double_points == "yes":
     double_message = ("You are also eligible to win double the points"
                       " if you win this round since you got a pair!")
 
-# Displays the first moves results
-print(f"You managed to get {user_points}. {double_message}")
-
 # Gets initial dice rolls for computer
-computer_first = double_roll()
+computer_first = double_roll("Computer")
 computer_points = computer_first[0]
 double_points = computer_first[1]
-
-# Displays the amount of points the computer got
-print(f"The computer got {computer_points}. {double_message}")
 
 # While both the user and the computer have <= points it keeps looping
 while user_points < 13 and computer_points < 13:
@@ -87,15 +84,16 @@ while user_points < 13 and computer_points < 13:
     else:
         result = "The Computer is ahead"
     # Overall stats of the round so far
-    print(f"***Round Update***: {result} ")
+    print(f"***Round Update***")
+    print(f"{result}")
     print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
 
 # Show round result
 if user_points < computer_points:
-    print("You have lost this round thus you gain no points "
+    print("You have lost this round meaning no points "
           "have been added to your total score. The computer's score has "
           f"increased by {computer_points} points. ")
 else:
-    print(f"Good job! You have won the round and {user_points} have "
+    print(f"Good job! You have won the round and {user_points} points have "
           f"been added to your score")
 
