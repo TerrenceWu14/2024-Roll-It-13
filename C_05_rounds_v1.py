@@ -30,14 +30,14 @@ def double_roll(who):
         double_message = ""
     elif double_score == "yes":
         double_message = (f"{who} is eligible to win double the points"
-                          " if you win this round since you got a pair!")
+                          " if you win this round since you got a pair! 🙌🙌")
         print(double_message)
     # Shows the result of the dice rolls
     return first_points, double_score
 
 
 # Main routine goes here
-print("Press <enter> to begin this round (roll the dies): ")
+print("Press <enter> to begin this round (roll the 🎲): ")
 input()
 # Gets the initial points for the user
 user_first = double_roll("You")
@@ -79,13 +79,15 @@ while user_points < 13 and computer_points < 13:
         break
 
     print()
-    # If user points > computer points it tells you that you're ahead
+    # If user points > computer points it tells you that you're ahead or if it's a tie
     if user_points > computer_points:
-        result = "You are ahead"
+        result = "🙂You are ahead🙂"
+    elif computer_points > user_points:
+        result = "😧The Computer is ahead😧"
     else:
-        result = "The Computer is ahead"
+        result = "😬 Its a tie 😬"
     # Overall stats of the round so far
-    print(f"***Round Update***")
+    print(f"⁕⁕⁕Round Update⁕⁕⁕")
     print(f"{result}")
     print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
 
@@ -95,6 +97,6 @@ if user_points < computer_points:
           "have been added to your total score. The computer's score has "
           f"increased by {computer_points} points. ")
 else:
-    print(f"Good job! You have won the round and {user_points} points have "
-          f"been added to your score")
+    print(f"🥳🥳🥳 You have won the round and {user_points} points have "
+          f"been added to your score 🥳🥳🥳")
 
