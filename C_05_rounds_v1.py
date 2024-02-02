@@ -25,6 +25,13 @@ def double_roll(who):
     # Prints out who got how many points and what they got from their rolls
     print(f"{who} managed to get {roll_1} and {roll_2}. Total Points: {first_points}")
 
+    # Tells the user if they are eligible for double points or if it's the computer
+    if double_score == "no":
+        double_message = ""
+    elif double_score == "yes":
+        double_message = (f"{who} is eligible to win double the points"
+                          " if you win this round since you got a pair!")
+        print(double_message)
     # Shows the result of the dice rolls
     return first_points, double_score
 
@@ -36,12 +43,6 @@ input()
 user_first = double_roll("You")
 user_points = user_first[0]
 double_points = user_first[1]
-# Tells the user if they are eligible for double points
-if double_points == "no":
-    double_message = ""
-elif double_points == "yes":
-    double_message = ("You are also eligible to win double the points"
-                      " if you win this round since you got a pair!")
 
 # Gets initial dice rolls for computer
 computer_first = double_roll("Computer")
