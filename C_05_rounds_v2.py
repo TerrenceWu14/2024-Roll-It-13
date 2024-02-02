@@ -56,11 +56,8 @@ computer_double_points = computer_first[1]
 while user_points < 13 and computer_points < 13:
 
     # If the user hasn't passed, yet then it asks if they want to roll again
-    if user_pass == "no":
-        roll_again = input("Press <enter> to roll again or type any letter to pass (reminder: if you pass then you "
-                           "won't roll again) ")
-    else:
-        roll_again = "no"
+    roll_again = input("Press <enter> to roll again or type any letter to pass (reminder: if you pass then you "
+                       "won't roll again) ")
     # Rolls the die if the user has decided to roll again
     if roll_again == "":
         user_pass = "no"
@@ -73,7 +70,11 @@ while user_points < 13 and computer_points < 13:
         # If the user has typed anything then it means they passed and won't roll again
         user_pass = "yes"
         print("You passed your turn")
+
+    # Makes it so that if the user had passed before they can't roll agian
+    if user_pass == "yes":
         pass
+
     # Checks to see whether the user or computer have goner over 13 or not
     if user_points > 13:
         # Makes it so that the loser gets this rounds' points reset to 0
@@ -81,8 +82,11 @@ while user_points < 13 and computer_points < 13:
         break
     print()
 
-    if 10 <= computer_points <= 13 and computer_points >= user_points:
+    if 10 <= computer_points <= 13 and computer_points - user_points <= 3:
         computer_pass = "yes"
+
+    elif computer_pass == "yes":
+        pass
 
     # Rolls the die for the computer and updates its points
     else:
@@ -126,6 +130,6 @@ elif user_points > computer_points:
     print(f"🥳🥳🥳 You have won the round and {user_points} points have "
           f"been added to your score 🥳🥳🥳")
 
-else:
-    print(f"You and the computer have tied so you gain {user_points} points and the computer also gains "
-          f"{computer_points}.")
+elif result == "😬 Its a tie 😬":
+    print(f"😔😔😔You and the computer have tied so you gain {user_points} points and the computer also gains "
+          f"{computer_points} 😔😔😔.")
