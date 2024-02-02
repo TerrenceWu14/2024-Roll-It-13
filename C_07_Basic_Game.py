@@ -64,8 +64,9 @@ print(target_score)
 while user_score < target_score and computer_score < target_score:
     # Add one to the number of rounds (for the heading)
     num_rounds += 1
-    print(f"Round {num_rounds}")
-
+    print()
+    print(f"*** Round: {num_rounds} ***")
+    print()
     # Start of a single round
 
     # Initialises the result and the user/computer pass
@@ -84,14 +85,19 @@ while user_score < target_score and computer_score < target_score:
     computer_double_points = computer_first[1]
 
     # While both the user and the computer have <= points it keeps looping
-    while user_points < 13 and computer_points < 13:
+    while user_points <= 13 and computer_points <= 13:
 
+        if user_points == 13:
+            user_pass = "yes"
         # If the user hasn't passed, yet then it asks if they want to roll again
-        roll_again = input("Press <enter> to roll again or type any letter to pass (reminder: if you pass then you "
-                           "won't roll again) ")
+
         # Rolls the die if the user has decided to roll again
+        if user_pass == "no":
+            print()
+            roll_again = input("Press <enter> to roll again or type any letter to pass (reminder: if you pass then you "
+                               "won't roll again) ")
         if roll_again == "":
-            user_pass = "no"
+
             user_roll_again = roll_die()
             # Adds what you got from the roll onto your current points
             user_points += user_roll_again
