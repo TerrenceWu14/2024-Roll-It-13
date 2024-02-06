@@ -58,6 +58,8 @@ computer_score = 0
 
 num_rounds = 0
 
+roll_again = ""
+
 target_score = num_check("Enter a target score: ")
 print(target_score)
 
@@ -84,11 +86,12 @@ while user_score < target_score and computer_score < target_score:
     computer_points = computer_first[0]
     computer_double_points = computer_first[1]
 
-    # While both the user and the computer have <= points it keeps looping
-    while user_points <= 13 and computer_points <= 13:
+    if user_points == 13:
+        user_pass = "yes"
 
-        if user_points == 13:
-            user_pass = "yes"
+    # While both the user and the computer have <= points it keeps looping
+    while user_points < 13 and computer_points < 13:
+
         # If the user hasn't passed, yet then it asks if they want to roll again
 
         # Rolls the die if the user has decided to roll again
@@ -96,6 +99,7 @@ while user_score < target_score and computer_score < target_score:
             print()
             roll_again = input("Press <enter> to roll again or type any letter to pass (reminder: if you pass then you "
                                "won't roll again) ")
+            print()
         if roll_again == "":
 
             user_roll_again = roll_die()
