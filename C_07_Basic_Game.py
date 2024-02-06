@@ -114,7 +114,7 @@ while user_score < target_score and computer_score < target_score:
 
         # Makes it so that if the user had passed before they can't roll again
         if user_pass == "yes":
-            pass
+            break
 
         # Checks to see whether the user or computer have goner over 13 or not
         if user_points > 13:
@@ -127,7 +127,7 @@ while user_score < target_score and computer_score < target_score:
             computer_pass = "yes"
 
         elif computer_pass == "yes":
-            pass
+            break
 
         # Rolls the die for the computer and updates its points
         else:
