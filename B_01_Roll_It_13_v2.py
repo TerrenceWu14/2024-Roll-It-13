@@ -91,6 +91,19 @@ def num_check(question):
         print(error)
 
 
+# Finds the lowest, highest and the average score from a list
+def get_stats(stats_list):
+    # Sorts the lists
+    stats_list.sort()
+    print(f"{user_scores}")
+    print(f"{computer_scores}")
+    # Finds the lowest, highest and the averages
+    lowest_score = user_scores[0]
+    highest_score = user_scores[-1]
+    average_score = sum(user_scores) / len(user_scores)
+    return [lowest_score, highest_score, average_score]
+
+
 # Main routine goes here
 
 # Initialises the user score and computer score and other variables
@@ -98,6 +111,9 @@ user_score = 0
 computer_score = 0
 num_rounds = 0
 roll_again = ""
+# Create lists to hold the user and computer scores
+user_scores = []
+computer_scores = []
 
 # Displays the title
 print()
@@ -241,6 +257,31 @@ while user_score < target_score and computer_score < target_score:
         user_score += add_points
         computer_score += add_points
 
+    # Adds user score to list of user scores
+    user_scores.append(user_score)
+    computer_scores.append(computer_score)
+
+    user_stats = get_stats(user_scores)
+    computer_stats = get_stats(computer_scores)
+
     print()
     print(f"User Score: {user_score} | Computer Score: {computer_score}")
     print()
+
+    view_stats = input("Press <enter> to view the statistics or type any letter to pass: ")
+    if view_stats == "":
+        print("📊📊📊Game Statistics📊📊📊")
+        print()
+        print("User (from all rounds):")
+        print(f"Lowest Score: {user_stats[0]}    "
+              f"Highest Score: {user_stats[1]}    "
+              f"Average Score: {user_stats[2]}")
+        print()
+        print("Computer (from all rounds):")
+        print(f"Lowest Score: {computer_stats[0]}    "
+              f"Highest Score: {computer_stats[1]}    "
+              f"Average Score: {computer_stats[2]}")
+    else:
+        print("Game has Ended")
+        break
+
