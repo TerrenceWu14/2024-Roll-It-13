@@ -80,15 +80,15 @@ def num_check(question):
     error = "Please choose an integer that is 13 or greater"
 
     # Checks that a number is higher or equal to 13
-    try:
-        response = int(input(question))
-        if response < 13:
+    while True:
+        try:
+            response = int(input(question))
+            if response < 13:
+                print(error)
+            else:
+                return response
+        except ValueError:
             print(error)
-        else:
-            return response
-
-    except ValueError:
-        print(error)
 
 
 # Finds the lowest, highest and the average score from a list
@@ -127,9 +127,8 @@ if want_instruction == "yes" or want_instruction == "y":
     instructions()
 
 target_score = num_check("Enter a target score: ")
-print(target_score)
 
-while user_score < target_score and computer_score < target_score:
+while True:
     # Add one to the number of rounds (for the heading)
     num_rounds += 1
     print()
@@ -284,4 +283,3 @@ while user_score < target_score and computer_score < target_score:
     else:
         print("Game has Ended")
         break
-
