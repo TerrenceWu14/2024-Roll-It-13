@@ -128,7 +128,7 @@ if want_instruction == "yes" or want_instruction == "y":
 
 target_score = num_check("Enter a target score: ")
 
-while True:
+while user_score < target_score and computer_score < target_score:
     # Add one to the number of rounds (for the heading)
     num_rounds += 1
     print()
@@ -253,33 +253,35 @@ while True:
         computer_score += add_points
     # If it's a tie then it adds the points to both the user and the computer
     else:
-        user_score += add_points
+        user_score += user_points
         computer_score += add_points
 
-    # Adds user score to list of user scores
-    user_scores.append(user_score)
-    computer_scores.append(computer_score)
+# Adds user score to list of user scores
+user_scores.append(user_score)
+computer_scores.append(computer_score)
 
-    user_stats = get_stats(user_scores)
-    computer_stats = get_stats(computer_scores)
+user_stats = get_stats(user_scores)
+computer_stats = get_stats(computer_scores)
 
+print()
+print(f"User Score: {user_score} | Computer Score: {computer_score}")
+print()
+
+view_stats = input("Press <enter> to view the statistics or type any letter to pass: ")
+if view_stats == "":
+    print("📊📊📊Game Statistics📊📊📊")
     print()
-    print(f"User Score: {user_score} | Computer Score: {computer_score}")
+    print("User (from all rounds):")
+    print(f"Lowest Score: {user_stats[0]}    "
+          f"Highest Score: {user_stats[1]}    "
+          f"Average Score: {user_stats[2]}")
     print()
+    print("Computer (from all rounds):")
+    print(f"Lowest Score: {computer_stats[0]}    "
+          f"Highest Score: {computer_stats[1]}    "
+          f"Average Score: {computer_stats[2]}")
+    print()
+    print("Game has Ended")
+else:
+    print("Game has Ended")
 
-    view_stats = input("Press <enter> to view the statistics or type any letter to pass: ")
-    if view_stats == "":
-        print("📊📊📊Game Statistics📊📊📊")
-        print()
-        print("User (from all rounds):")
-        print(f"Lowest Score: {user_stats[0]}    "
-              f"Highest Score: {user_stats[1]}    "
-              f"Average Score: {user_stats[2]}")
-        print()
-        print("Computer (from all rounds):")
-        print(f"Lowest Score: {computer_stats[0]}    "
-              f"Highest Score: {computer_stats[1]}    "
-              f"Average Score: {computer_stats[2]}")
-    else:
-        print("Game has Ended")
-        break
