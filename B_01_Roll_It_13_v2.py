@@ -163,21 +163,21 @@ while user_score < target_score and computer_score < target_score:
             roll_again = input("Press <enter> to roll again or type any letter to pass (reminder: if you pass then you "
                                "won't roll again) ")
             print()
-        if roll_again == "":
+            if roll_again == "":
 
-            user_roll_again = roll_die()
-            # Adds what you got from the roll onto your current points
-            user_points += user_roll_again
-            # Displays what you rolled and your new updated points
-            print(f"You rolled a {user_roll_again}. Total points: {user_points}")
-        else:
-            # If the user has typed anything then it means they passed and won't roll again
-            user_pass = "yes"
-            print("You passed your turn")
+                user_roll_again = roll_die()
+                # Adds what you got from the roll onto your current points
+                user_points += user_roll_again
+                # Displays what you rolled and your new updated points
+                print(f"You rolled a {user_roll_again}. Total points: {user_points}")
+            else:
+                # If the user has typed anything then it means they passed and won't roll again
+                user_pass = "yes"
+                print("You passed your turn")
 
-        # Makes it so that if the user had passed before they can't roll again
-        if user_pass == "yes":
-            break
+            # Makes it so that if the user had passed before they can't roll again
+            if user_pass == "yes":
+                break
 
         # Checks to see whether the user or computer have goner over 13 or not
         if user_points > 13:
