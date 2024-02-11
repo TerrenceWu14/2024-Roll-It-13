@@ -149,13 +149,11 @@ while user_score < target_score and computer_score < target_score:
     computer_points = computer_first[0]
     computer_double_points = computer_first[1]
 
-    if user_points == 13:
-        user_pass = "yes"
-
     # While both the user and the computer have <= points it keeps looping
     while user_points < 13 and computer_points < 13:
-
-        # If the user hasn't passed, yet then it asks if they want to roll again
+        # Automatically passes if the user has 13 points
+        if user_points == 13:
+            user_pass = "yes"
 
         # Rolls the die if the user has decided to roll again
         if user_pass == "no":
