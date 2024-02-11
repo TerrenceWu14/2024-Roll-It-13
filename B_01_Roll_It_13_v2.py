@@ -301,12 +301,12 @@ if view_stats == "":
     print("User (from all rounds):")
     print(f"Lowest Score: {user_stats[0]}    "
           f"Highest Score: {user_stats[1]}    "
-          f"Average Score: {user_stats[2]}")
+          f"Average Score: {user_stats[2]:.2f}")
     print()
     print("Computer (from all rounds):")
     print(f"Lowest Score: {computer_stats[0]}    "
           f"Highest Score: {computer_stats[1]}    "
-          f"Average Score: {computer_stats[2]}")
+          f"Average Score: {computer_stats[2]:.2f}")
     print()
     print("Game has Ended")
 else:
