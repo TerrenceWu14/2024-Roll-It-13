@@ -176,10 +176,6 @@ while user_score < target_score and computer_score < target_score:
                 user_pass = "yes"
                 print("You passed your turn")
 
-            # Makes it so that if the user had passed before they can't roll again
-            # if user_pass == "yes":
-            #     break
-
         # Checks to see whether the user or computer have goner over 13 or not
         if user_points > 13:
             # Makes it so that the loser gets this rounds' points reset to 0
