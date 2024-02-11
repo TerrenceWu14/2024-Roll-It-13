@@ -109,23 +109,26 @@ user_score = 0
 computer_score = 0
 num_rounds = 0
 roll_again = ""
-# Create lists to hold the user and computer scores
+# Create lists to hold the user and computer scores and starts the game history
 user_scores = []
 computer_scores = []
+game_history = []
 
 # Displays the title
 print()
 print("🎲🎲🎲 Roll It 13 🎲🎲🎲")
 print()
 
+# Displays the instructions if the user wants to see them
 want_instruction = yes_no("Do you want to read the instructions? (If so type yes or if not type no)")
 
-# Checks whether the user entered yes or no
 if want_instruction == "yes" or want_instruction == "y":
     instructions()
 
+# Gets the target score for the entire game (must be greater than 13)
 target_score = num_check("Enter a target score: ")
 
+# Loops the game until there is a winner
 while user_score < target_score and computer_score < target_score:
     # Add one to the number of rounds (for the heading)
     num_rounds += 1
@@ -246,6 +249,11 @@ while user_score < target_score and computer_score < target_score:
     # Adds user score to list of user scores
     user_scores.append(user_score)
     computer_scores.append(computer_score)
+
+    # Stores the round result into a list
+    round_result = f"Round {num_rounds} - User: {user_points} \t Computer: {computer_points}"
+    game_history.append(round_result)
+
     # End of a single round
 
     # If the user won then it adds the points to their score
@@ -270,7 +278,21 @@ print()
 print(f"Final User Score: {user_score} | Final Computer Score: {computer_score}")
 print()
 
+# Asks if the user wants to view the game history
+view_history = yes_no("Do you want to view the game's round history?")
+if view_history == "yes":
+    print("\n⌛⌛⌛ Game History ⌛⌛⌛ ")
+
+    # Outputs the game history
+    for item in game_history:
+        print(item)
+
+        print()
+
+# Asks the user if they want to view the game statistics
 view_stats = input("Press <enter> to view the statistics or type any letter to pass: ")
+
+# Outputs the game statistics
 if view_stats == "":
     # Displays the entire game's statistics
     print()
