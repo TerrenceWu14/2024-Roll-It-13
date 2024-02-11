@@ -149,7 +149,7 @@ while user_score < target_score and computer_score < target_score:
     computer_points = computer_first[0]
     computer_double_points = computer_first[1]
 
-    # While both the user and the computer have <= points it keeps looping
+    # While both the user and the computer have <= 13 points it keeps looping
     while user_points < 13 and computer_points < 13:
         # Automatically passes if the user has 13 points
         if user_points == 13:
@@ -174,8 +174,8 @@ while user_score < target_score and computer_score < target_score:
                 print("You passed your turn")
 
             # Makes it so that if the user had passed before they can't roll again
-            if user_pass == "yes":
-                break
+            # if user_pass == "yes":
+            #     break
 
         # Checks to see whether the user or computer have goner over 13 or not
         if user_points > 13:
@@ -187,11 +187,13 @@ while user_score < target_score and computer_score < target_score:
         if 10 <= computer_points <= 13:
             computer_pass = "yes"
 
-        elif computer_pass == "yes":
+        # If both the computer and the user has passed then it breaks out of the loop
+        # and displays the end of round stats
+        if computer_pass == "yes" and user_pass == "yes":
             break
 
         # Rolls the die for the computer and updates its points
-        if computer_pass == "no":
+        else:
             computer_roll_again = roll_die()
             computer_points += computer_roll_again
             print(f"The Computer rolled a {computer_roll_again}. Total points: {computer_points}")
@@ -214,10 +216,10 @@ while user_score < target_score and computer_score < target_score:
         print(f"{result}")
         print(f"User Score: {user_points} \t | \t Computer Score: {computer_points}")
 
-        # # Checks if the computer and user have both passed and whether it's a tie
-        # if computer_points == user_points and computer_pass and user_pass == "yes":
-        #     result = "Its a tie"
-        #     break
+        # Checks if the computer and user have both passed and whether it's a tie
+        if computer_points == user_points and computer_pass == "yes" and user_pass == "yes":
+            result = "Its a tie"
+            break
 
     # Show round result
     if user_points < computer_points:
@@ -257,8 +259,10 @@ while user_score < target_score and computer_score < target_score:
         user_score += user_points
         computer_score += user_points
 
+# Gets the stats for both the user and the computer
 user_stats = get_stats(user_scores)
 computer_stats = get_stats(computer_scores)
+
 # Lets the user know that the game is over
 print()
 print("---Game Over---")
