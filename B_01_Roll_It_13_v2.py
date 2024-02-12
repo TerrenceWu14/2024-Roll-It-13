@@ -29,7 +29,7 @@ For each round of the games you roll a dice to decide how many points you get
 The winner of the round is the person who is the closest to 13 (must not be higher)
 
 If you win the round then your score will increase by the number you got,
-If you were to roll a double on your first oll (e.g. 2 6s) 
+If you were to roll a double on your first roll (e.g. 2 6s) 
 then you gain DOUBLE the amount of points (12 x 2 = 24)
 
 If you lose the round you gain 0 points
